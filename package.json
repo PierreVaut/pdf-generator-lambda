@@ -6,6 +6,14 @@
   "author": "pierrevaut <p.vautherin@hotmail.com>",
   "license": "MIT",
   "scripts": {
-    "deploy": "aws s3 sync --delete . s3://pvautherin-pdf-generator-lambda --profile pdf-generator-lambda"
+    "clean": "rm build/lambda.zip",
+    "zip": "yarn clean && zip build/lambda.zip -r index.js node_modules",
+    "deploy": " aws s3 sync --delete build s3://pvautherin-pdf-generator-lambda --profile pdf-generator-lambda",
+    "update": "aws lambda update-function-code --function-name arn:aws:lambda:us-east-1:680637963852:function:pdf-render-1 --s3-bucket pvautherin-pdf-generator-lambda --s3-key lambda.zip --profile cvPierrevautherinWebapp",
+    "push": "yarn zip && yarn deploy && yarn update"
+  },
+  "dependencies": {
+    "chrome-aws-lambda": "^3.0.4",
+    "puppeteer-core": "^3.0.4"
   }
 }
