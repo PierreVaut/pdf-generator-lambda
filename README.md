@@ -1,4 +1,4 @@
-# pdf-generator-lambda
+# PDF Generator Lambda
 
 This lambda does a PDF print of [my CV static page](http://randomwebsite.xyz/#/pierre-vautherin-cv-2020) and pushes the file on a S3 bucket.
 This lambda is triggered by each file change on the S3 bucket containing the CV.
