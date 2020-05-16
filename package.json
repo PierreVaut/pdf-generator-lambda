@@ -1,0 +1,11 @@
+{
+  "name": "pdf-generator-lambda",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:PierreVaut/pdf-generator-lambda.git",
+  "author": "pierrevaut <p.vautherin@hotmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "deploy": "aws s3 sync --delete . s3://pvautherin-pdf-generator-lambda --profile pdf-generator-lambda"
+  }
+}
